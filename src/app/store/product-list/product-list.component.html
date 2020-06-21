@@ -6,12 +6,27 @@
     <app-product-sidebar [publishers]="publishers" [authors]="authors"></app-product-sidebar>
   </div>
   <div class="col-md-10 product-list">
-    <app-product-filter></app-product-filter>
+    <app-product-filter (searchSubmit)="search($event)"></app-product-filter>
   <div class="product-list__product-list-box">
     <div class="row">
-      <div class="col-md-3" *ngFor="let product of products">
-        <app-product-item [product]="product"></app-product-item>
+      <div class="col-md-3" *ngFor="let product of products; index as i; trackBy: trackByFn" >
+        <app-product-item [product]="product" (click)="onSelectedProduct(product.$key)"></app-product-item>
       </div>
+      <!-- <ng-template ngFor let-product [ngForOf]="products" let-i="index">
+        <div class="col-md-3">
+          <app-product-item [product]="product" (click)="onSelectedProduct(product.$key)"></app-product-item>
+        </div>
+      </ng-template> -->
+
+      <!-- <ng-container *ngIf="products.length > 0; else noProduct">
+        <div class="col-md-3" *ngFor="let product of products; index as i">
+          <app-product-item [product]="product" (click)="onSelectedProduct(product.$key)"></app-product-item>
+        </div>
+      </ng-container>
+      <ng-template #noProduct>
+        <div class="col-md-12">No Product!</div>
+      </ng-template> -->
+
     </div>
     <app-product-paging></app-product-paging>
   </div>

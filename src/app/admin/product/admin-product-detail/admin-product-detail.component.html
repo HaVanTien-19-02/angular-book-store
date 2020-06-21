@@ -1,0 +1,58 @@
+<div class="row product-detail" *ngIf="product">
+    <div class="col-md-5">
+        <img class="product-image" style="width: 100%; height: 100%;"
+            [src]="product.imageUrl || ''"
+            [alt]="product.title">
+    </div>
+
+    <div class="col-md-7">
+        <table class="table">
+        <tbody>
+        <tr>
+            <th>ID</th>
+            <td>{{product.$key}}</td>
+        </tr>
+        <tr>
+            <th>Title</th>
+            <td>{{product.title}}</td>
+        </tr>
+        <tr>
+            <th>imageUrl</th>
+            <td>{{product.imageUrl}}</td>
+        </tr>
+        <tr>
+            <th>author</th>
+            <td>{{product.author}}</td>
+        </tr>
+        <tr>
+            <th>finalPrice</th>
+            <td>{{product.finalPrice}}</td>
+        </tr>
+        <tr>
+            <th>regularPrice</th>
+            <td>{{product.regularPrice}}</td>
+        </tr>
+        <tr>
+            <th>publisher</th>
+            <td>{{product.publisher}}</td>
+        </tr>
+        <tr>
+            <th>publishedDate</th>
+            <td>{{product.publishedDate}}</td>
+        </tr>
+        <tr>
+            <th>size</th>
+            <td>{{product.size}}</td>
+        </tr>
+        <tr>
+            <th>pageCount</th>
+            <td>{{product.pageCount}}</td>
+        </tr>
+        <tr>
+            <th>isTikiNow</th>
+            <td>{{product.isTikiNow}}</td>
+        </tr>
+        </tbody>
+    </table>
+    </div>
+</div>

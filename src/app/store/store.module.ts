@@ -1,8 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { SharedModule } from '../shared/shared.module';
 import { CheckOutComponent } from './check-out/check-out.component';
+import { MyBuyLaterComponent } from './my-buy-later/my-buy-later.component';
+import { MyFavoritesComponent } from './my-favorites/my-favorites.component';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
 import { OrderSuccessComponent } from './order-success/order-success.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
@@ -15,8 +18,6 @@ import { ProductSlideshowComponent } from './product-list/product-slideshow/prod
 import { ShippingFormComponent } from './shipping-form/shipping-form.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { ShoppingSummaryComponent } from './shopping-summary/shopping-summary.component';
-import { MyFavoritesComponent } from './my-favorites/my-favorites.component';
-import { MyBuyLaterComponent } from './my-buy-later/my-buy-later.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { MyBuyLaterComponent } from './my-buy-later/my-buy-later.component';
   ],
   imports: [
     CommonModule,
+    FormsModule,
     SharedModule
   ],
   exports: [

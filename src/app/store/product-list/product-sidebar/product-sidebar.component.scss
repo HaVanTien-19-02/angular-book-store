@@ -1,15 +1,22 @@
 .sidebar {
     border-right: solid 1px #f4f4f4;
-  
+
     &__title h4 {
       padding: 15px 0 10px 0;
       font-size: 1.35rem;
       font-weight:700;
     }
-  
+
     .list-group-item {
       cursor: pointer;
       border: none;
       padding: 0 5px;
     }
+}
+
+.border-red {
+  border: solid red 1px;
+}
+.background-yellow {
+  background-color: yellow;
 }

@@ -26,7 +26,7 @@
                 </div>
                 <div class="collapse navbar-collapse nav-control notification-box" id="navbar">
                     <i class="tikicon icon-notification"></i>
-                    <span class="notification-count">3</span>
+                    <span class="notification-count">{{ notifys.length }}</span>
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item dropdown">
                             <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
@@ -34,26 +34,12 @@
                                 Thông báo<br>của tôi
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item notify-item" href="#" [title]="notify[0].content">
+                                <a *ngFor="let notify of notifys" class="dropdown-item notify-item" href="#" [title]="notify.content">
                                     <div class="icon"><img
                                             src="https://frontend.tikicdn.com/_desktop-next/static/img/icons/discount.png">
                                     </div>
-                                    <div class="notify-content"><span class="content">{{notify[0].content}}</span><span
-                                            class="date">{{notify[0].date}}</span></div>
-                                </a>
-                                <a class="dropdown-item notify-item" href="#" [title]="notify[0].content">
-                                    <div class="icon"><img
-                                            src="https://frontend.tikicdn.com/_desktop-next/static/img/icons/discount.png">
-                                    </div>
-                                    <div class="notify-content"><span class="content">{{notify[0].content}}</span><span
-                                            class="date">{{notify[0].date}}</span></div>
-                                </a>
-                                <a class="dropdown-item notify-item" href="#" [title]="notify[0].content">
-                                    <div class="icon"><img
-                                            src="https://frontend.tikicdn.com/_desktop-next/static/img/icons/discount.png">
-                                    </div>
-                                    <div class="notify-content"><span class="content">{{notify[0].content}}</span><span
-                                            class="date">{{notify[0].date}}</span></div>
+                                    <div class="notify-content"><span class="content">{{notify.content}}</span><span
+                                            class="date">{{notify.date}}</span></div>
                                 </a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" style="text-align: center;">Xem tất cả thông báo</a>
@@ -61,7 +47,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="collapse navbar-collapse nav-control" id="navbar">
+                <div class="collapse navbar-collapse nav-control" id="navbar" *ngIf="!isLoggedInUser">
                     <i class="tikicon icon-user"></i>
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item dropdown">
@@ -80,7 +66,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="collapse navbar-collapse nav-control" id="navbar">
+                <div class="collapse navbar-collapse nav-control" id="navbar" *ngIf="isLoggedInUser">
                     <i class="tikicon icon-user"></i>
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item dropdown">
@@ -91,10 +77,10 @@
                             <div class="dropdown-menu" aria-labelledby="user-controls">
                                 <a class="dropdown-item" href="#">Đơn hàng của tôi</a>
                                 <a class="dropdown-item" href="#">Sản phẩm yêu thích</a>
-                                <a class="dropdown-item" href="#">Quản lý đơn hàng</a>
-                                <a class="dropdown-item" href="#">Quản lý sản phẩm</a>
+                                <a class="dropdown-item" href="#" *ngIf="user.isAdmin">Quản lý đơn hàng</a>
+                                <a class="dropdown-item" href="#" *ngIf="user.isAdmin">Quản lý sản phẩm</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Thoát tài khoản</a>
+                                <a class="dropdown-item" href="/" (click)="logout()">Thoát tài khoản</a>
                             </div>
                         </li>
                     </ul>
@@ -105,7 +91,7 @@
                         <li class="nav-item dropdown">
                             <span class="nav-link" style="cursor: pointer;">
                                 Giỏ hàng
-                                <span class="cart-count">1</span>
+                                <span class="cart-count">{{ cartCount}}</span>
                             </span>
                         </li>
                     </ul>

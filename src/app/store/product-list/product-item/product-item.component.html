@@ -1,20 +1,24 @@
 <div class="product-item">
     <div class="content">
-    <span class="image">
-        <img class="product-image img-responsive"
-        [src]="product.imageUrl"
-        alt="">
-    </span>
-    <p class="title">
-        <i class="tikicon icon-tikinow"></i>
-        {{ product.title }}
-    </p>
-    <p class="author">{{ product.author }}</p>
-    <p class="price-sale">
-        <span class="final-price">
-        197.050đ <span class="sale-tag sale-tag-square">-40%</span>
-        </span>
-        <span class="price-regular">330.000đ</span>
-    </p>
+      <span class="image">
+          <img class="product-image img-responsive"
+          [src]="product.imageUrl"
+          [alt]="product.title">
+      </span>
+      <p class="title">
+          <i class="tikicon icon-tikinow" *ngIf="product.isTikiNow"></i>
+          <i *ngIf="!product.isTikiNow">No TikiNow</i>
+          <ng-template #notikinow>
+              <i>No TikiNow</i>
+          </ng-template>
+          {{ product.title | titlecase }}
+      </p>
+      <p class="author">{{ product.author }}</p>
+      <p class="price-sale">
+          <span class="final-price">
+          {{ product.finalPrice | price }} <span class="sale-tag sale-tag-square">{{ product.finalPrice | discount:product.regularPrice:'-' }}</span>
+          </span>
+          <span class="price-regular">{{ product.regularPrice | price }}</span>
+      </p>
     </div>
 </div>
