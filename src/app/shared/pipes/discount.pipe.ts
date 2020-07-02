@@ -9,7 +9,7 @@ export class DiscountPipe implements PipeTransform {
     if (!finalPrice || !regularPrice) {
       return;
     }
-    return prefix + (finalPrice * 100 / regularPrice).toFixed() + '%';
+    return prefix + ((regularPrice - finalPrice) * 100 / regularPrice).toFixed() + '%';
   }
 
 }

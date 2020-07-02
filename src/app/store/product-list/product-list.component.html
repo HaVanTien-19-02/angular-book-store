@@ -10,17 +10,17 @@
   <div class="product-list__product-list-box">
     <div class="row">
       <div class="col-md-3" *ngFor="let product of products; index as i; trackBy: trackByFn" >
-        <app-product-item [product]="product" (click)="onSelectedProduct(product.$key)"></app-product-item>
+        <app-product-item [product]="product" (click)="onSelectedProduct(product.id)"></app-product-item>
       </div>
       <!-- <ng-template ngFor let-product [ngForOf]="products" let-i="index">
         <div class="col-md-3">
-          <app-product-item [product]="product" (click)="onSelectedProduct(product.$key)"></app-product-item>
+          <app-product-item [product]="product" (click)="onSelectedProduct(product.id)"></app-product-item>
         </div>
       </ng-template> -->
 
       <!-- <ng-container *ngIf="products.length > 0; else noProduct">
         <div class="col-md-3" *ngFor="let product of products; index as i">
-          <app-product-item [product]="product" (click)="onSelectedProduct(product.$key)"></app-product-item>
+          <app-product-item [product]="product" (click)="onSelectedProduct(product.id)"></app-product-item>
         </div>
       </ng-container>
       <ng-template #noProduct>

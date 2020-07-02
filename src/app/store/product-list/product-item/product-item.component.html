@@ -7,10 +7,6 @@
       </span>
       <p class="title">
           <i class="tikicon icon-tikinow" *ngIf="product.isTikiNow"></i>
-          <i *ngIf="!product.isTikiNow">No TikiNow</i>
-          <ng-template #notikinow>
-              <i>No TikiNow</i>
-          </ng-template>
           {{ product.title | titlecase }}
       </p>
       <p class="author">{{ product.author }}</p>

@@ -5,13 +5,13 @@ import { Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class StoreService {
-  private selectedProductId = new Subject<string>();
-  selectedProductId$ = this.selectedProductId.asObservable();
+  private selectedProductid = new Subject<string>();
+  selectedProductid$ = this.selectedProductid.asObservable();
 
   constructor() { }
 
-  setSelectedProductId(pid: string): void {
-    this.selectedProductId.next(pid);
+  setSelectedProductid(pid: string): void {
+    this.selectedProductid.next(pid);
   }
 
 }

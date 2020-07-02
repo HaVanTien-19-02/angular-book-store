@@ -2,7 +2,7 @@ import { AppUser } from '../models/app-user';
 
 export const users: AppUser[] = [
   {
-    $key: '1',
+    id: '1',
     name: 'Tống Minh Giang',
     email: 'monkeytgoku@gmail.com',
     password: '123456',
@@ -10,7 +10,7 @@ export const users: AppUser[] = [
     isAdmin: true
   },
   {
-    $key: '2',
+    id: '2',
     name: 'Nguyễn Văn An',
     email: 'nvan@gmail.com',
     password: '123456',

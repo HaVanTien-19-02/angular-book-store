@@ -1,5 +1,5 @@
 export class ShoppingCartItem {
-  $key: string;
+  id: string;
   title: string;
   imageUrl: string;
   price: number;

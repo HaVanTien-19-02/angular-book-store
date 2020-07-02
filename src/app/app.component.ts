@@ -9,13 +9,17 @@ import { AuthService } from './shared/services/auth.service';
 })
 
 export class AppComponent {
-  selectedProductId: string;
+  selectedProductid: string;
 
   constructor(private authService: AuthService) {
     authService.refreshToken();
   }
 
-  handleSelectedProduct(productId: string): void {
-    this.selectedProductId = productId;
+  handleSelectedProduct(productid: string): void {
+    this.selectedProductid = productid;
+  }
+
+  handleYesConfirm() {
+    console.log('btn Yes was clicked!');
   }
 }

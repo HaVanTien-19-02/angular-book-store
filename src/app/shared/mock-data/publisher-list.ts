@@ -1,22 +1,22 @@
 export const publishers = [
   {
-    $key: '1',
+    id: '1',
     value: 'MacMillan Publishers'
   },
   {
-    $key: '2',
+    id: '2',
     value: 'Nhà Xuất Bản Phụ Nữ'
   },
   {
-    $key: '3',
+    id: '3',
     value: 'Nhà Xuất Bản Thế Giới'
   },
   {
-    $key: '4',
+    id: '4',
     value: 'Nhà Xuất Bản Văn Học'
   },
   {
-    $key: '5',
+    id: '5',
     value: 'Nhà Xuất Bản Trẻ'
   }
 ];

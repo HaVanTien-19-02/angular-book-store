@@ -6,7 +6,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { StoreModule } from './store/store.module';
+import { SharedModule } from './shared/shared.module';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './shared/interceptors/auth.interceptor';
+import { AdminRoutingModule } from './admin/admin-routing.module';
 
+export const HttpInterceptorProviders = [
+  { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor , multi: true },
+  // { provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true },
+];
 @NgModule({
   declarations: [
     AppComponent
@@ -14,11 +22,17 @@ import { StoreModule } from './store/store.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     CoreModule,
     StoreModule,
-    AdminModule
+    AdminModule,
+    SharedModule,
+    AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    // { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+    HttpInterceptorProviders
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

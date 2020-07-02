@@ -2,7 +2,7 @@ import { Product } from '../models/product';
 
 export const products: Product[] = [
     {
-        $key: '1',
+        id: '1',
         title: 'Guinness World Records 2019: Wild Things (Paperback)',
         imageUrl: 'https://salt.tikicdn.com/cache/280x280/ts/product/ca/c9/70/743112ce044389f3155b72bb2629ca2f.jpg',
         author: 'Guinness World Records',
@@ -15,7 +15,7 @@ export const products: Product[] = [
         isTikiNow: false
     },
     {
-        $key: '2',
+        id: '2',
         title: 'Vui Vẻ Không Quạu Nha - Tản Văn',
         imageUrl: 'https://salt.tikicdn.com/cache/280x280/ts/product/b2/56/d3/17262447faaef713be60d6b25ec0551d.jpg',
         author: 'Ở Đây Zui Nè',
@@ -28,7 +28,7 @@ export const products: Product[] = [
         isTikiNow: true
     },
     {
-        $key: '3',
+        id: '3',
         title: 'Đừng Lựa Chọn An Nhàn Khi Còn Trẻ',
         imageUrl: 'https://salt.tikicdn.com/cache/280x280/ts/product/eb/62/6b/0e56b45bddc01b57277484865818ab9b.jpg',
         author: 'Cảnh Thiên',
@@ -41,7 +41,7 @@ export const products: Product[] = [
         isTikiNow: true
     },
     {
-        $key: '4',
+        id: '4',
         title: 'Nhà Giả Kim',
         imageUrl: 'https://salt.tikicdn.com/cache/280x280/ts/product/66/5f/5a/312bac222584d52fea5e9d644369b254.jpg',
         author: 'Paulo Coelho',
@@ -54,7 +54,7 @@ export const products: Product[] = [
         isTikiNow: true
     },
     {
-        $key: '5',
+        id: '5',
         title: 'Bạn Đắt Giá Bao Nhiêu?',
         imageUrl: 'https://salt.tikicdn.com/cache/280x280/ts/product/87/c9/c0/bfebf4adcb31c8eb5c39fd3779cc4b68.jpg',
         author: 'Vãn Tình',
@@ -67,7 +67,7 @@ export const products: Product[] = [
         isTikiNow: false
     },
     {
-        $key: '6',
+        id: '6',
         title: 'Đời Ngắn Đừng Ngủ Dài (Tái Bản)',
         imageUrl: 'https://salt.tikicdn.com/cache/280x280/ts/product/57/44/86/19de0644beef19b9b885d0942f7d6f25.jpg',
         author: 'Robin Sharma',

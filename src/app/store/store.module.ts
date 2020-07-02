@@ -18,6 +18,8 @@ import { ProductSlideshowComponent } from './product-list/product-slideshow/prod
 import { ShippingFormComponent } from './shipping-form/shipping-form.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { ShoppingSummaryComponent } from './shopping-summary/shopping-summary.component';
+import { RouterModule } from '@angular/router';
+import { StoreRoutingModule } from './store-routing.module';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,8 @@ import { ShoppingSummaryComponent } from './shopping-summary/shopping-summary.co
   imports: [
     CommonModule,
     FormsModule,
-    SharedModule
+    SharedModule,
+    StoreRoutingModule
   ],
   exports: [
     ProductListComponent,

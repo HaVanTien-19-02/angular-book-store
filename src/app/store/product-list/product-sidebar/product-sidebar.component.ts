@@ -1,10 +1,9 @@
-import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-product-sidebar',
   templateUrl: './product-sidebar.component.html',
-  styleUrls: ['./product-sidebar.component.scss'],
-  encapsulation: ViewEncapsulation.Emulated
+  styleUrls: ['./product-sidebar.component.scss']
 })
 export class ProductSidebarComponent implements OnInit {
   @Input() publishers: string[];

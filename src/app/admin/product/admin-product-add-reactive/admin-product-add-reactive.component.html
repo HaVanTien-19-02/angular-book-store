@@ -1,0 +1,97 @@
+<div class="fit-body">
+  <form novalidate [formGroup]="productForm" class="row justify-content-md-center">
+    <div class="form-group row">
+      <div class="col-md-4">
+        <img class="product__image" style="width: 100%;" [src]="productForm.controls.imageUrl.value"
+          [alt]="productForm.controls.title.value">
+      </div>
+
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="inputTitle">Title</label>
+          <input type="text" class="form-control" id="inputTitle" formControlName="title">
+          <div class="invalid-tooltip">
+            Please provide a title.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputImageUrl">Image Url</label>
+          <input type="text" class="form-control" id="inputImageUrl" formControlName="imageUrl">
+          <div class="invalid-tooltip"
+            *ngIf="productForm.controls.imageUrl.invalid && productForm.controls.imageUrl.errors.required">
+            Please provide an image url.
+          </div>
+          <div class="invalid-tooltip"
+            *ngIf="productForm.controls.imageUrl.invalid && productForm.controls.imageUrl.errors.pattern">
+            Please provide a valid image url.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputAuthor">Author</label>
+          <input type="text" class="form-control" id="inputAuthor" formControlName="author">
+          <div class="invalid-tooltip">
+            Please provide an author.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputFinalPrice">Final Price</label>
+          <input type="number" class="form-control" id="inputFinalPrice" formControlName="finalPrice">
+          <div class="invalid-tooltip">
+            Please provide a final price.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputRegularPrice">Regular Price</label>
+          <input type="number" class="form-control" id="inputRegularPrice" formControlName="regularPrice">
+          <div class="invalid-tooltip">
+            Please provide a regular price.
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="inputPublisher">Publisher</label>
+          <select class="form-control" id="inputPublisher" formControlName="publisher">
+            <option selected></option>
+            <option *ngFor="let p of publishers" [value]="p.value">{{ p.value }}</option>
+          </select>
+          <div class="invalid-tooltip">
+            Please provide a publisher.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputPublishedDate">Published Date</label>
+          <input type="text" class="form-control" id="inputPublishedDate" formControlName="publishedDate">
+        </div>
+        <div class="form-group">
+          <label for="inputSize">Size</label>
+          <input type="string" class="form-control" id="inputSize" formControlName="size">
+        </div>
+        <div class="form-group">
+          <label for="inputPageCount">Page Count</label>
+          <input type="number" class="form-control" id="inputPageCount" formControlName="pageCount">
+        </div>
+        <div class="form-group">
+          <label for="inputTikiNow">TikiNow</label>
+          <div class="form-control">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" id="inlineTikiNow1" [value]="true"
+                formControlName="isTikiNow">
+              <label class="form-check-label" for="inlineTikiNow1">Active</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" id="inlineTikiNow0" [value]="false"
+                formControlName="isTikiNow">
+              <label class="form-check-label" for="inlineTikiNow0">InActive</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="text-align: right;margin-top: 15px;">
+        <button class="btn btn-secondary" style="margin-right: 10px;" (click)="goBack()">Cancel</button>
+        <button class="btn btn-primary" [disabled]="productForm.pristine || productForm.invalid"
+          (click)="submit()">Submit</button>
+      </div>
+    </div>
+  </form>
+</div>

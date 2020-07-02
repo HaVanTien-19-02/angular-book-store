@@ -1,5 +1,5 @@
 export interface AppUser {
-    $key: string;
+    id: string;
     name: string;
     password?: string;
     email: string;

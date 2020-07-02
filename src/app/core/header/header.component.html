@@ -75,10 +75,10 @@
                                 Chào<br>{{ user.name }}
                             </a>
                             <div class="dropdown-menu" aria-labelledby="user-controls">
-                                <a class="dropdown-item" href="#">Đơn hàng của tôi</a>
-                                <a class="dropdown-item" href="#">Sản phẩm yêu thích</a>
-                                <a class="dropdown-item" href="#" *ngIf="user.isAdmin">Quản lý đơn hàng</a>
-                                <a class="dropdown-item" href="#" *ngIf="user.isAdmin">Quản lý sản phẩm</a>
+                                <a class="dropdown-item" routerLink="/store/my-orders" routerLinkActive="active">Đơn hàng của tôi</a>
+                                <a class="dropdown-item" routerLink="/store/my-favorites" routerLinkActive="active">Sản phẩm yêu thích</a>
+                                <a class="dropdown-item" routerLink="/admin/orders" routerLinkActive="active" *ngIf="user.isAdmin">Quản lý đơn hàng</a>
+                                <a class="dropdown-item" routerLink="/admin" routerLinkActive="active" *ngIf="user.isAdmin">Quản lý sản phẩm</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="/" (click)="logout()">Thoát tài khoản</a>
                             </div>

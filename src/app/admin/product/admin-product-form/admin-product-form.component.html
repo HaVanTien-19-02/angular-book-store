@@ -1,0 +1,133 @@
+<form ngForm novalidate #productForm="ngForm" class="row justify-content-md-center">
+  <div class="col-md-4">
+    <img class="product-image" [src]="imageUrl.value">
+  </div>
+  <div class="col-md-4">
+    <div class="form-group row">
+        <label for="example-title-input" class="col-form-label">Title:</label>
+        <input class="form-control" type="text" id="example-title-input"
+            required
+            ngModel #title="ngModel" name="title">
+        <div class="col-md-10">  
+          <div *ngIf="title?.touched
+            && title?.invalid
+            && title?.errors?.required"
+            class="col alert alert-danger" role="alert">
+            Please provide a title.
+          </div>
+          <br>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="example-imageUrl-input" class="col-form-label">Image Url:</label>
+        <input class="form-control" type="text" id="example-imageUrl-input"
+            required pattern="(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png|jpeg)"
+            ngModel #imageUrl="ngModel" name="imageUrl">
+        <div class="col-md-10">  
+          <div *ngIf="imageUrl?.touched
+            && imageUrl?.invalid
+            && imageUrl?.errors?.required"
+            class="col alert alert-danger" role="alert">
+            Please provide an image Url.
+          </div>
+          <div *ngIf="imageUrl?.errors?.pattern"
+            class="col alert alert-danger" role="alert">
+            Please provide a valid Url.
+          </div>
+          <br>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="example-author-input" class="col-form-label">Author:</label>
+        <input class="form-control" type="text" id="example-author-input"
+            required
+            ngModel #author="ngModel" name="author">
+        <div class="col-md-10">  
+          <div *ngIf="author?.touched
+            && author?.invalid
+            && author?.errors?.required"
+            class="col alert alert-danger" role="alert">
+            Please provide a author.
+          </div>
+          <br>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="example-finalPrice-input" class="col-form-label">Final Price:</label>
+        <input class="form-control" type="text" id="example-finalPrice-input"
+            required
+            ngModel #finalPrice="ngModel" name="finalPrice">
+        <div class="col-md-10">  
+          <div *ngIf="finalPrice?.touched
+            && finalPrice?.invalid
+            && finalPrice?.errors?.required"
+            class="col alert alert-danger" role="alert">
+            Please provide a final price.
+          </div>
+          <br>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="example-regularPrice-input" class="col-form-label">Regular Price:</label>
+        <input class="form-control" type="text" id="example-regularPrice-input"
+            required
+            ngModel #regularPrice="ngModel" name="regularPrice">
+        <div class="col-md-10">  
+          <div *ngIf="regularPrice?.touched
+            && regularPrice?.invalid
+            && regularPrice?.errors?.required"
+            class="col alert alert-danger" role="alert">
+            Please provide a regular price.
+          </div>
+          <br>
+        </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="form-group row">
+      <label for="example-tel-input" class="col-form-label">
+        Publisher
+      </label> <br>
+      <select class="form-control" type="text" id="example-tel-input" ngModel name="publisher">
+        <option *ngFor="let p of publishers">{{p.value}}</option>
+      </select>
+    </div>
+    <br>
+    <div class="form-group row">
+      <label for="example-publishedDate-input">
+        Published Date
+      </label> <br>
+      <input class="form-control" type="text" id="example-publishedDate-input" ngModel name="publishedDate">
+    </div>
+    <br>
+    <div class="form-group row">
+      <label for="example-tel-input">
+        Size
+      </label> <br>
+      <input class="form-control" type="text" id="example-tel-input" ngModel name="size">
+    </div><br>
+    <div class="form-group row">
+      <label for="example-tel-input">
+        Page Count
+      </label> <br>
+      <input class="form-control" type="text" id="example-tel-input" ngModel name="pageCount">
+    </div><br>
+    <div class="form-group row">
+      <label for="example-isTikiNow-input">TikiNow</label> <br><br><br><br>
+      <div class="form-check-inline form-check">
+        <input type="radio" class="form-check-inline" id="example-isTikiNow-input" ngModel #isTikiNow="ngModel" name="isTikiNow" value="true">
+        <label class="form-check-label">Active</label>
+      </div>
+      <div class="form-check-inline form-check">
+        <input type="radio" class="form-check-inline" id="example-isTikiNow-input" ngModel #isTikiNow="ngModel" name="isTikiNow" value="false">
+        <label class="form-check-label">inActive</label>
+      </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-10 offset-2">
+      <button class="btn btn-secondary" style="margin-right: 10px;" (click)="goBack()">Cancel</button>
+    <button class="btn btn-primary" [disabled]="productForm.invalid" (click)="submit(productForm)">Submit</button>
+    </div>
+  </div>
+</form>

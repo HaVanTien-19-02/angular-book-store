@@ -1,5 +1,5 @@
 export interface IProduct {
-    $key: string;
+    id: string;
     title: string;
     imageUrl: string;
     author: string;
@@ -13,7 +13,7 @@ export interface IProduct {
 }
 
 export class Product implements IProduct {
-  $key: string;
+  id: string;
   title: string;
   imageUrl: string;
   author: string;

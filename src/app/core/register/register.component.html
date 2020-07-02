@@ -1,35 +1,74 @@
 <!-- Modal -->
-<div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
+<div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true" data-backdrop="static">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="registerModalLabel">Đăng ký</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <button #btnCloseModal (click)="closeModal()" type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          <form>
+          <form [formGroup]="registerForm" novalidate (ngSubmit)="register()">
             <div class="form-group">
                 <label for="registerInputName">Họ tên</label>
-                <input type="text" class="form-control" id="registerInputName">
+                <input formControlName="name" type="text" class="form-control" id="registerInputName">
+                <div *ngIf="registerForm.controls.name.touched
+                  && registerForm.controls.name.errors?.required"
+                  class="invalid-feedback">Please provide a fullname.
+                </div>
+                <div *ngIf="registerForm.controls.name.touched && registerForm.controls.name.hasError('forbiddenName')" class="invalid-feedback">
+                  Please don't use a fullname include 'admin'.
+                </div>
             </div>
             <div class="form-group">
               <label for="registerInputEmail">Email</label>
-              <input type="email" class="form-control" id="registerInputEmail">
+              <input formControlName="email" type="email" class="form-control" id="registerInputEmail">
+              <div class="invalid-feedback">Please provide an email.</div>
             </div>
             <div class="form-group">
                 <label for="registerInputMobile">Số điện thoại</label>
-                <input type="text" class="form-control" id="registerInputMobile">
+                <input formControlName="mobile" type="text" class="form-control" id="registerInputMobile">
+                <div class="invalid-feedback">Please provide a mobile.</div>
             </div>
+            <fieldset formGroupName="social">
+              <div class="form-group">
+                <label for="register-url-fb">Facebook</label>
+                <input class="form-control" type="url" id="register-url-fb" formControlName="facebook">
+              </div>
+              <div class="form-group">
+                <label for="register-url-twt">Twitter</label>
+                <input class="form-control" type="url" id="register-url-twt" formControlName="twitter">
+              </div>
+            </fieldset>
+            <!-- <div class="form-group" formArrayName="mobile">
+              <label for="registerInputMobile">Số điện thoại</label>
+              <ng-container *ngFor="let c of mobile.controls; index as i">
+                <div [class.input-group]="mobile.length > 1" class=" input-mobile">
+                  <input formControlName="mobile" type="text" class="form-control" [formControlName]="i">
+                  <div class="input-group-append" *ngIf="mobile.length > 1">
+                    <button class="btn btn-danger" type="button" (click)="removeMobile(i)">X</button>
+                  </div>
+                  <div class="invalid-feedback">Please provide a mobile.</div>
+                </div>
+              </ng-container>
+              <button class="btn btn-secondary btn-addmore" type="button" (click)="addMoreMobile()">Add more</button>
+            </div> -->
             <div class="form-group">
               <label for="registerInputPassword">Mật khẩu</label>
-              <input type="password" class="form-control" id="registerInputPassword">
+              <input formControlName="password" type="password" class="form-control" id="registerInputPassword">
+              <div *ngIf="registerForm.controls.password.touched
+                && registerForm.controls.password.errors?.required"
+                class="invalid-feedback">Please provide a password.
+              </div>
+              <div *ngIf="registerForm.controls.password.touched && registerForm.controls.password.hasError('minlength')" class="invalid-feedback">
+                The password must be at least {{ registerForm.controls.password.errors.minlength.requiredLength }} characters.
+              </div>
             </div>
           </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary">Tạo tài khoản</button>
+          <button type="button" class="btn btn-primary" [disabled]="registerForm.invalid" (click)="register()">Tạo tài khoản</button>
         </div>
       </div>
     </div>

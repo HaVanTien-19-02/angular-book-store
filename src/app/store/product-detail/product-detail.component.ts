@@ -9,19 +9,19 @@ import { StoreService } from '../services/store.service';
   styleUrls: ['./product-detail.component.scss']
 })
 export class ProductDetailComponent implements OnInit, OnChanges {
-  @Input() productId: string;
+  @Input() productid: string;
 
   product: Product;
 
   constructor(private storeService: StoreService) { }
 
-  ngOnChanges(productId: {previousValue, currentValue, firstChange}) {
-    this.product = products.find(ele => ele.$key === this.productId);
+  ngOnChanges(productid: {previousValue, currentValue, firstChange}) {
+    this.product = products.find(ele => ele.id === this.productid);
   }
 
   ngOnInit(): void {
-    this.storeService.selectedProductId$.subscribe(pid => {
-      this.product = products.find(ele => ele.$key === pid);
+    this.storeService.selectedProductid$.subscribe(pid => {
+      this.product = products.find(ele => ele.id === pid);
     });
   }
 
